@@ -21,11 +21,12 @@ void insertathead(node*& head, int data)
 void insertatend(node*& head, int data)
 {
     node* n = new node(data);
-    while (head->next != NULL)
+    node* temp = head;
+    while (temp->next != NULL)
     {
-        head = head->next;
+        temp = temp->next;
     }
-    head->next = n;
+    temp->next = n;
 }
 void insertinmiddle(node*& head, int data, int p)
 {
@@ -53,6 +54,40 @@ void print(node* head)
 
     }
 }
+void deleteathead(node*& head)
+{
+    node* temp = head;
+    head = head->next;
+    delete temp;
+    return;
+}
+void deleteatend(node*& head)
+{
+    node* temp = head;
+    node* k = NULL;
+    while (temp->next != NULL)
+    {
+        k = temp;
+        temp = temp->next;
+    }
+    k->next = NULL;
+    delete temp;
+
+}
+void deleteinmiddle(node*& head, int p)
+{
+    node* temp = head;
+    node* prev = NULL;
+
+    for (int i = 1; i < p - 1; i++)
+    {
+        prev = temp;
+        temp = temp->next;
+
+    }
+    prev->next = temp->next;
+    delete temp;
+}
 int main()
 {
     node* head = NULL;
@@ -61,6 +96,12 @@ int main()
     insertathead(head, 3);
     insertinmiddle(head, 4, 2);
     insertatend(head, 7);
+    insertathead(head, 2);
+    deleteathead(head);
+    insertatend(head, 10);
+    deleteatend(head);
+    insertinmiddle(head, 3, 3);
+    deleteinmiddle(head, 3);
     print(head);
     return 0;
 
