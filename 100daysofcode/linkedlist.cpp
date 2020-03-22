@@ -88,6 +88,12 @@ void deleteinmiddle(node*& head, int p)
     prev->next = temp->next;
     delete temp;
 }
+
+void reverse(node*& head)
+{
+
+}
+
 int main()
 {
     node* head = NULL;
@@ -103,6 +109,9 @@ int main()
     insertinmiddle(head, 3, 3);
     deleteinmiddle(head, 3);
     print(head);
+    reverse(head);
+    print(head);
     return 0;
+    
 
 }
