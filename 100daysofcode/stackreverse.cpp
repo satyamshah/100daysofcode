@@ -10,7 +10,7 @@ void reversestack(stack<int>& s1)
     {
         int temp = s1.top();
         s1.pop();
-        while (!s1.empty())
+        for (int j = i; j < n; j++)
         {
             s2.push(s1.top());
             s1.pop();
@@ -25,12 +25,12 @@ void reversestack(stack<int>& s1)
 }
 int main()
 {
-    stack<string> s;
+    stack<int> s;
     int n;
     cin >> n;
     for (int i = 0; i < n; i++)
     {
-        string k;
+        int k;
         cin >> k;
         s.push(k);
     }
