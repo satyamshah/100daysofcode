@@ -7,17 +7,22 @@ int main()
 	freopen("input.txt", "r", stdin);
 	freopen("output.txt", "w", stdout);
 #endif
-	int n;
-	int xor = 0;
-	for (int i = 0; i < n; i++)
+
+	int a = 3;
+	int n = 5;
+	int ans = 1;
+	while (n > 0)
 	{
-		cin >> n;
-		xor = xor ^ n;
+		int lastbit = n & 1;
+		if (lastbit == 1)
+		{
+			ans = ans * a;
+		}
+		a = a * a;
+		n = n >> 1;
 	}
-	int k = xor;
-	while (k&?>
+	cout << ans;
 
 
-	        return 0;
+	return 0;
 }
-
