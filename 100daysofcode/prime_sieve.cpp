@@ -2,7 +2,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-void primesieve(int *arr, int n)
+void primesieve(int arr[], int n)
 {
 	arr[0] = arr[1] = 0;
 	arr[2] = 1;
