@@ -33,10 +33,20 @@ node* buildtree()
 	return root;
 }
 
+
+int heightoftree(node* root)
+{
+	if (root == NULL)
+		return 0;
+	int lh = heightoftree(root->left);
+	int rh = heightoftree(root->right);
+	return (max(lh, rh) + 1);
+}
+
 void printpreorder(node* root)
 {
 	if (root == NULL)
-		return;
+		return ;
 	cout << root->data;
 	printpreorder(root->left);
 	printpreorder(root->right);
@@ -63,6 +73,35 @@ void printpostorder(node* root)
 
 
 }
+
+void printkthlevel(node* root, int k)
+{
+	if (root == NULL)
+	{
+		return;
+	}
+	if (k == 1)
+	{
+		cout << root->data;
+	}
+
+	printkthlevel(root->left, k - 1);
+	printkthlevel(root->right, k - 1);
+	return ;
+}
+
+void printlevelorder(node* root)
+{
+	int h = heightoftree(root);
+	for (int i = 1; i <= h; i++)
+	{
+		printkthlevel(root, i);
+		cout << endl;
+	}
+	return;
+
+}
+
 int main()
 {
 #ifndef ONLINE_JUDGE
@@ -71,9 +110,15 @@ int main()
 #endif
 
 	node*root = buildtree();
-	printpreorder(root);
+	/*printpreorder(root);
+	cout << endl;
 	printinorder(root);
+	cout << endl;
 	printpostorder(root);
+	cout << endl;
+	cout << heightoftree(root);
+	printkthlevel(root, 2);*/
+	printlevelorder(root);
 
 	return 0;
 }
