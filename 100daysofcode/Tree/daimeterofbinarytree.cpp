@@ -1,8 +1,8 @@
 #include<iostream>
 #include<bits/stdc++.h>
 using namespace std;
-class node
-{
+
+class node {
 public:
 	int data;
 	node* left;
@@ -15,7 +15,6 @@ public:
 		right = NULL;
 	}
 
-
 };
 
 node* buildtree()
@@ -26,59 +25,54 @@ node* buildtree()
 	{
 		return NULL;
 	}
-
 	node* root = new node(d);
+	root->data = d;
 	root->left = buildtree();
 	root->right = buildtree();
 	return root;
 }
 
 
+
 int heightoftree(node* root)
 {
 	if (root == NULL)
-		return 0;
-	int lh = heightoftree(root->left);
-	int rh = heightoftree(root->right);
-	return (max(lh, rh) + 1);
-}
-
-void bfs(node* root)
-{
-	queue<node*>q;
-	q.push(root);
-	while (!q.empty())
 	{
-		node* f = q.front();
-		cout << f->data;
-		q.pop();
-		if (f->left != NULL)
-		{
-			q.push(f->left);
-		}
-
-
-		if (f->right != NULL)
-		{
-			q.push(f->right);
-		}
-
+		return 0;
 	}
 
-	return;
+	int lh = heightoftree(root->left);
+	int rh = heightoftree(root->right);
+	return (max(lh + rh) + 1);
+
+}
+
+int daimeteroftree(node* root)
+{
+	int a = heightoftree(root->left);
+	int b = heightoftree(root->right);
+	int c = a + b;
+	int l = daimeteroftree(root->left);
+	int r = daimeteroftree(root->right);
+	return (max(c, l, b));
+
 }
 
 
 int main()
 {
+
 #ifndef ONLINE_JUDGE
 	freopen("input.txt", "r", stdin);
 	freopen("output.txt", "w", stdout);
 #endif
-	node*root = buildtree();
-	bfs(root);
 
+	node* root = buildtree();
+	printtree(root);
+	cout << endl;
+	int h = heightoftree(root);
+	cout << h << endl;
+	int d = daimeteroftree(root);
+	cout << d;
 
-	return 0;
 }
-

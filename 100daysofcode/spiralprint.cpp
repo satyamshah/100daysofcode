@@ -17,17 +17,17 @@ int main()
 	int r1 = 0;
 	int c1 = c;
 	int r2 = r - 1;
-	int c2 = c-1;
+	int c2 = c - 1;
 	int c3 = c - 1;
 	int k = 0;
 
-	while (((rmp+lmp)<=r) && ((dmp+upm)<=c))
+	while (((rmp + lmp) <= r) && ((dmp + upm) <= c))
 	{
-	
-		for (int i = 0; i<c1-1; i++)
+
+		for (int i = 0; i < c1 - 1; i++)
 		{
-			cout << arr[r1][i]<<endl;
-		
+			cout << arr[r1][i] << endl;
+
 		}
 		r1++;
 		c1--;

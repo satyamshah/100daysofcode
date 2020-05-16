@@ -47,20 +47,36 @@ void bfs(node* root)
 {
 	queue<node*>q;
 	q.push(root);
+	q.push(NULL);
 	while (!q.empty())
 	{
 		node* f = q.front();
-		cout << f->data;
-		q.pop();
-		if (f->left != NULL)
+		if (f == NULL)
 		{
-			q.push(f->left);
+			cout << endl;
+			q.pop();
+			if (!q.empty())
+			{
+				q.push(NULL);
+			}
+
 		}
+		else
 
-
-		if (f->right != NULL)
 		{
-			q.push(f->right);
+			cout << f->data;
+			q.pop();
+
+			if (f->left != NULL)
+			{
+				q.push(f->left);
+			}
+
+
+			if (f->right != NULL)
+			{
+				q.push(f->right);
+			}
 		}
 
 	}

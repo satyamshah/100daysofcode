@@ -33,39 +33,23 @@ node* buildtree()
 	return root;
 }
 
-
-int heightoftree(node* root)
+int count(node* root)
 {
 	if (root == NULL)
+	{
 		return 0;
-	int lh = heightoftree(root->left);
-	int rh = heightoftree(root->right);
-	return (max(lh, rh) + 1);
+	}
+	return (count(root->left) + count(root->right) + 1);
 }
 
-void bfs(node* root)
+int sum(node* root)
 {
-	queue<node*>q;
-	q.push(root);
-	while (!q.empty())
+	if (root == NULL)
 	{
-		node* f = q.front();
-		cout << f->data;
-		q.pop();
-		if (f->left != NULL)
-		{
-			q.push(f->left);
-		}
-
-
-		if (f->right != NULL)
-		{
-			q.push(f->right);
-		}
-
+		return 0;
 	}
 
-	return;
+	return (sum(root->left) + sum(root->right) + root->data);
 }
 
 
@@ -76,9 +60,9 @@ int main()
 	freopen("output.txt", "w", stdout);
 #endif
 	node*root = buildtree();
-	bfs(root);
 
-
+	cout << count(root) << endl;
+	cout << sum(root);
 	return 0;
 }
 
