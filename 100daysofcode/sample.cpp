@@ -9,8 +9,7 @@ int main()
 	freopen("input.txt", "r", stdin);
 	freopen("output.txt", "w", stdout);
 #endif
-	int h = 2;
-	cout << multiply(++h);
+
 	return 0;
 }
 
