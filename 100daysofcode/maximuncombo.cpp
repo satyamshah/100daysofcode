@@ -15,42 +15,6 @@ int digits(int a)
 	return c;
 }
 
-bool compare(int a, int b)
-{
-	int flag = 1;
-	int x = digits(a);
-	int y = digits(b);
-	int q = a / (pow(10, x));
-	int w = b / (pow(10, y));
-	if (q > w)
-	{
-		return a < b;
-	}
-	else if (q < w)
-	{
-		return a > b;
-	}
-	else
-	{
-		int maxi = max(x, y);
-		for (int i = 1; i <= maxi; i++)
-		{
-			q = a / (pow(10, x - i));
-			w = b / (pow(10, x - i));
-			if (q > w)
-			{
-				return a < b;
-			}
-			else if (q < w)
-			{
-				return a > b;
-			}
-
-		}
-		return a < b;
-
-	}
-}
 int main() {
 
 
@@ -65,12 +29,29 @@ int main() {
 	{
 		int n;
 		cin >> n;
+		int k, l, x, y;
 		int a[n];
 		for (int i = 0; i < n; i++)
 		{
 			cin >> a[i];
 		}
-		sort(a, a + n, compare);
+		for (int i = 0; i < n - 1; i++)
+		{
+			for (int j = 0; j < n - i - 1; j++)
+			{
+				x = digits(a[j]);
+				y = digits(a[j + 1]);
+
+				if ((a[j] / (pow(10, x - 1)) > (a[j + 1] / (pow(10, y - 1))))
+				        swap(a[j], a[j + 1]);
+				        else if ((a[j] / (pow(10, x - 1)) == (a[j + 1] / (pow(10, y - 1))))
+				{
+					if (a[j] < a[j + 1])
+							swap(a[j], a[j + 1]);
+					}
+
+			}
+		}
 
 		for (int i = 0; i < n; i++)
 		{
