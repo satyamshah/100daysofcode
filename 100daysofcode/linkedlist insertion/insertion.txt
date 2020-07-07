@@ -1,0 +1,39 @@
+#include <iostream>
+using namespace std;
+class node{
+    public:
+    int data;
+    node *next;
+
+    node(int d)
+    {
+        data=d;
+        next = NULL;
+    }
+};
+//passing pointer as reference variable;
+void insertathead(node* &head, int data)
+{
+ node *n = new node(data);// making object dynamically
+ n->next=head;
+ head=n;
+}
+//passing pointer by value;
+void print(node*head)
+{
+    node* temp=head;
+    while(temp!=NULL)
+    {
+        cout<<temp->data<<"->";
+        temp=temp->next;
+
+    }
+}
+int main() {
+   node *head=NULL;
+   insertathead(head,5);
+   insertathead(head,6);
+   print(head);
+
+
+}

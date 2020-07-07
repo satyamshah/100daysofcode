@@ -1,0 +1,25 @@
+#include <iostream>
+using namespace std;
+int function(char a)
+{
+	 if (a >= 65 && a <= 90)
+    {
+        return 'U';
+    }
+    else if (a >= 97 && a <= 122)
+    {
+        return 'L';
+    }
+    else
+    {
+        return 'I';
+    }
+}
+int main() {
+    char c;
+    cin >> c;
+    int a = function(c);
+	char n=a;
+	cout<<n;
+   
+}
