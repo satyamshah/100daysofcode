@@ -1,0 +1,7 @@
+3
+4
+3
+Maximum size sub-matrix is: 
+1 1 1 
+1 1 1 
+1 1 1 

@@ -1,0 +1,61 @@
+#include<iostream>
+using namespace std;
+int main()
+{
+	int n;
+	int arr1[1000];
+	cin >> n;
+	for (int i = 0; i <= n; i++)
+	{
+		cin >> arr1[i];
+	}
+	int m;
+	int arr2[1000];
+	cin >> m;
+	for (int i = 0; i <= m; i++)
+	{
+		cin >> arr2[i];
+
+	}
+	if (n >= m)
+	{
+		for (int i = m-1; i =>0; i--)
+		{
+			if (i != m - 1 && (arr1[i + 1] + arr2[i + 1]) >=10)
+			{
+				sum[i] = sum[i] + 1;
+			}
+			if (arr1[i] + arr2[i] >= 10)
+			{
+				rem = (arr1[i] + arr[i]) % 10;
+				sum[i] = sum[i] + rem;
+			}
+			if (arr1[i] + arr2[i] < 10)
+			{
+				sum[i]=arr1[i]+arr2[i]
+			}
+		}
+	}
+	else
+	{
+
+		for (int i = n - 1; i = > 0; i--)
+		{
+			if (i != n - 1 && (arr1[i + 1] + arr2[i + 1]) >= 10)
+			{
+				sum[i] = sum[i] + 1;
+			}
+			if (arr1[i] + arr2[i] >= 10)
+			{
+				rem = (arr1[i] + arr[i]) % 10;
+				sum[i] = sum[i] + rem;
+			}
+			if (arr1[i] + arr2[i] < 10)
+			{
+				sum[i] = arr1[i] + arr2[i]
+			}
+		}
+	}
+	return 0;
+
+}
